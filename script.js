@@ -1,9 +1,9 @@
 const STORE_KEY = 'flow.board';
 
 const COLUMNS = [
-  { key: 'todo', title: 'To Do', color: '#6b8bff' },
-  { key: 'progress', title: 'In Progress', color: '#ffb020' },
-  { key: 'done', title: 'Done', color: '#3ddc97' },
+  { key: 'todo', title: 'To Do', color: '#2563eb' },
+  { key: 'progress', title: 'In Progress', color: '#d97706' },
+  { key: 'done', title: 'Done', color: '#0f9d63' },
 ];
 
 const DEFAULT_BOARD = {
@@ -117,7 +117,7 @@ function render() {
 function buildCard(card, columnKey) {
   const el = document.createElement('article');
   el.className = `card ${card.priority}`;
-  el.draggable = true;
+  el.draggable = editingId !== card.id;
   el.dataset.id = card.id;
 
   const top = document.createElement('div');
@@ -208,7 +208,10 @@ function buildCard(card, columnKey) {
     dragData = { id: card.id, from: columnKey };
     el.classList.add('dragging');
   });
-  el.addEventListener('dragend', () => el.classList.remove('dragging'));
+  el.addEventListener('dragend', () => {
+    el.classList.remove('dragging');
+    dragData = null;
+  });
 
   return el;
 }
