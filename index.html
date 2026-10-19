@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flow — Kanban Board</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <div>
+      <h1>Flow Board</h1>
+      <p>Drag cards between columns · double-click a card to edit.</p>
+    </div>
+    <div class="head-actions">
+      <span class="stat" id="totalStat">0 cards</span>
+      <button class="btn ghost" id="clearBtn">Clear all</button>
+    </div>
+  </header>
+
+  <div class="board" id="board"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
